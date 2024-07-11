@@ -5,31 +5,24 @@ module aptosz3::vectores {
 
     fun practica() {
         // Vectores
-        let _vacio: vector<u64> = vector[]; // Un vector vacio.
-        let _vacio2 = empty<u32>(); // Otra forma de crear un vector vacio.
-        let _v1: vector<u8> = vector[10, 20, 30]; // Un vector de u8 inicializado con 3 elementos.
-        let _v2: vector<vector<u16>> = vector[
-            vector[10, 20],
-            vector[30, 40]
-        ]; // Un vector de vectores u16 inicializado con 2 elementos, cada uno con 2 elementos.
+        let _matriz: vector<vector<u16>> = vector[
+            vector[3,5,7],
+            vector[4,8,1],
+            vector[2,7,9]
+        ]; // Una matriz de 3x3 inicializado con elementos arbitrarios.
+        let _v1 : vector<u16> = *borrow(&_matriz, 0);
+        let _v2 : vector<u16> = *borrow(&_matriz, 1);
+        let _v3 : vector<u16> = *borrow(&_matriz, 2);
 
-        // Operaciones
-        let v3: vector<u8> = vector[1, 2, 3];
-
-        let elemento = *borrow(&v3, 0); // Obteniendo el primer elemento del vector.
-        print(&elemento); // Resultado: [debug] 1
-
-        let longitud = length(&v3); // Obteniendo la longitud del vector.
-        print(&longitud); // Resultado: [debug] 3
-
-        *borrow_mut(&mut v3, 1) = 55; // Sustituyendo un valor en el vector.
-        print(borrow(&v3, 1)); // Resultado: [debug] 5
-
-        push_back(&mut v3, 40); // Agregando un elemento al final del vector.
-        print(borrow(&v3, 3)); // Resultado: [debug] 40
-
-        // Recuerda que puedes obtener informacion sobre las demos operaciones en:
-        // https://github.com/aptos-labs/aptos-core/blob/main/aptos-move/framework/move-stdlib/doc/vector.md
+        print(borrow(&_v1, 0)); 
+        print(borrow(&_v1, 1));
+        print(borrow(&_v1, 2));
+        print(borrow(&_v2, 0));
+        print(borrow(&_v2, 1));
+        print(borrow(&_v2, 2));
+        print(borrow(&_v3, 0));
+        print(borrow(&_v3, 1));
+        print(borrow(&_v3, 2));
     }
 
     #[test]
