@@ -5,7 +5,7 @@ module aptosz3::cadenas {
     use std::option::{Option, some};
 
     
-    struct Persona has drop { 
+    struct Persona has drop, copy { 
         nombre: String, 
         grado : String,
         especialidad : String,
@@ -32,7 +32,7 @@ module aptosz3::cadenas {
         let maestro3 = Persona{ nombre: utf8(b"Josue Mireles"),grado:utf8(b"Doctorado"),especialidad : utf8(b"Ingenieria aplicada") };
         let maestro4 = Persona{ nombre: utf8(b"Roman Martinez"),grado:utf8(b"Maestria"),especialidad : utf8(b"Matematicas") };
         let clase1 = Clase {materia : utf8(b"Cinematica de robots"),idgrupo:15356,programa:utf8(b"Ingenieria Mecatronica"),activo:true,maestro:maestro1};
-        let clase2 = Clase {materia : utf8(b"Dinamica de robots"),idgrupo:16246,programa:utf8(b"Ingenieria Mecatronica"),activo:true,maestro:maestro2};
+        let clase2 = Clase {materia : utf8(b"Dinamica de robots"),idgrupo:16246,programa:utf8(b"Ingenieria Mecatronica"),activo:true,maestro:maestro1};
         let clase3 = Clase {materia : utf8(b"Probabilidad y Estadistica"),idgrupo:11345,programa:utf8(b"Ingenieria Biomedica"),activo:true,maestro:maestro3};
         let clase4 = Clase {materia : utf8(b"Funciones matematicas"),idgrupo:10445,programa:utf8(b"Ingenieria en Software"),activo:true,maestro:maestro4};
         let _clases : vector<Clase> = vector [
