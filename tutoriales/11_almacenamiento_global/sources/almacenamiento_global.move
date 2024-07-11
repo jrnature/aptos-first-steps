@@ -1,8 +1,5 @@
-// Para estudiar el funcionamiento del Global Storage vamos a hacer un programa completo.
-// Integraremos la mayoria de las cosas que se han visto hasta ahora , por lo que es necesario que no hayas saltado los temas anteriores. 
-// El modulo es simplemente un contador. Almacenaremos un numero entero y tendremos una funcion para incrementarlo.
 module cuenta::almacenamiento_global {
-    use std::signer; // Global Storage trabaja sobre el signer y address como vimos anteriormente.
+    use std::signer; 
 
     struct Contador has key { 
         valor: u64,
@@ -54,9 +51,7 @@ module cuenta::almacenamiento_global {
 
     public entry fun restablecer(cuenta: &signer) acquires Contador { 
         let referencia_contador = &mut borrow_global_mut<Contador>(signer::address_of(cuenta)).valor; 
-        let referencia_reseteo = &mut borrow_global_mut<Contador>(signer::address_of(cuenta)).reseteo;
         *referencia_contador = 0;
-        *referencia_reseteo = false
     }
 
      public entry fun limpiarReseteo(direccion: address) acquires Contador { 
